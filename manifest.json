@@ -1,6 +1,6 @@
 {
   "name": "Transmission Context Menu",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "manifest_version": 2,
   "description": "Chrome context menu to add magnet/torrent links to Transmission.",
   "homepage_url": "https://github.com/vohof/chrome-transmission-context-menu",
