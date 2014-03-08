@@ -7,13 +7,14 @@
       port: 52259,
       endpoint: '/transmission/rpc'
     }),
-    store = settings.toObject(),
     sessionId = '';
 
   chrome.contextMenus.create({
     title: 'Download with Transmission',
     contexts: ['link'],
     onclick: function sendTorrent(e) {
+      var store = settings.toObject();
+
       $.ajax({
         type: 'POST',
         data: JSON.stringify({
@@ -24,6 +25,7 @@
         }),
         dataType: 'json',
         beforeSend: function(xhr) {
+          chrome.notifications.clear('notify', function() {});
           xhr.setRequestHeader('X-Transmission-Session-Id', sessionId);
           if (store.hasOwnProperty('username') &&
               store.hasOwnProperty('password'))
@@ -39,7 +41,7 @@
             sendTorrent(e);
           } else {
             console.log(err);
-            chrome.notifications.create('error', {
+            chrome.notifications.create('notify', {
               title: 'Transmission Context Menu',
               type: 'basic',
               iconUrl: 'icons/icon128.png',
@@ -48,7 +50,7 @@
           }
         },
         success: function(res) {
-          chrome.notifications.create('success', {
+          chrome.notifications.create('notify', {
             title: 'Transmission Context Menu',
             type: 'basic',
             iconUrl: 'icons/icon128.png',
