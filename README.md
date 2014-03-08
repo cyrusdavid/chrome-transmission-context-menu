@@ -3,7 +3,7 @@ transmission-context-menu
 
 This Chrome extensions add a context menu on links for them to be added to transmission.
 
-![screenshot of context menu](screenshot.png)
+<img src="screenshot.png" height="277" width="233" alt="screenshot of context menu">
 
 Installation
 ---
@@ -15,8 +15,7 @@ Installation
 Usage
 ---
 
-1. Fill in the options page:
-![Chrome extension options page](options.png)
+1. Fill in the options page: <img src="options.png" height="320" width="572" alt="Chrome extension options page" style="margin:15px auto;display:block">
 2. Right click on a magnet/torrent link
 3. Choose `Add to Transmission`
 4. voilà!
